@@ -30,7 +30,7 @@ export class AppComponent implements OnInit {
   }
 
   buttonClick(): void {
-    this.http.get('http://localhost:3000').subscribe((res:any) => this.result = res);
+    this.http.get('https://localhost:3000').subscribe((res:any) => this.result = res);
   }
 
 
