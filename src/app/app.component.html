@@ -1,11 +1,26 @@
 <style>
-
-  a:hover {
-    color: #99e761;
+  table, tr, th, td {
+    border-style: solid;
+    border-width: 1px;
+  }
+  th, td {
+    padding: 3px;
   }
 </style>
   <div>
-    <button (click)="buttonClick()">Klikk</button>
-    <p >{{ result.message }}  {{ result.count }}</p>
+    <button (click)="buttonClick()">Http Send</button>
+    <p >{{ result?.message }}  {{ result?.count }}</p>
+    <textarea [(ngModel)]="taContent"></textarea>
+   <p> <button (click)="wsClick()">WS Send</button></p>
+   <table>
+    <tr><th>Client</th><th>Server</th></tr>
+    <tbody>
+    <tr *ngFor="let comment of comments">
+      <td>{{ comment.client }}</td>
+      <td>{{ comment.server }}</td>
+    </tr>
+  </tbody>
+  </table>
+
   </div>
 <router-outlet></router-outlet>
