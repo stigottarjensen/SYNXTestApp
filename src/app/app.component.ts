@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
 
   constructor(private http: HttpClient) { }
   ngOnInit(): void {
-    this.subject = webSocket('ws://localhost:8128');
+    this.subject = webSocket('wss://localhost:8128');
     this.subject.subscribe({
       next: (msg: any) => {
         console.log('message received: ' + msg.message); 
