@@ -1,17 +1,49 @@
 <style>
-  table, tr, th, td {
-    border-style: solid;
-    border-width: 1px;
+  div {
+    padding: 6px;
+    margin: 0px;
+    font-size: 22px;
+    background-color: black;
+    color: grey;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
-  th, td {
-    padding: 3px;
+ .response {
+    color: yellow;
+    background-color: darkmagenta;
+  }
+
+  input {
+    width:90%;
+    height:30px;
+    font-size: 22px;
+    border-style: hidden;
+    background-color: #cdc3c3;
+    color: rgb(10, 9, 9);
+    outline-width: 0px;
   }
 </style>
-  <div>
-    <button (click)="buttonClick()">Http Send</button>
+
+<div>
+  <div style="width:95%; height:85%; overflow: auto;">
+    <div style="width:100%">
+    
+        <div *ngFor="let element of commandHistory">
+          <div><hr></div>
+          <div>{{ element.command }}</div>
+          <div class="response">{{ element.response }}</div>
+        </div>
+
+    <input type="text" [(ngModel)]="commandString" (keypress)="enterCommand($event)">
+  </div>
+</div>
+
+<p> <button (click)="wsClick()">WS Send</button></p>
+<button (click)="buttonClick()">Http Send</button>
+<!-- <div>
+   
     <p >{{ result?.message }}  {{ result?.count }}</p>
     <textarea [(ngModel)]="taContent"></textarea>
-   <p> <button (click)="wsClick()">WS Send</button></p>
+   
    <table>
     <tr><th>Client</th><th>Server</th></tr>
     <tbody>
@@ -21,6 +53,5 @@
     </tr>
   </tbody>
   </table>
-
-  </div>
-<router-outlet></router-outlet>
+  </div> -->
+<!-- <router-outlet></router-outlet> -->
