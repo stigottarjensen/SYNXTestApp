@@ -20,8 +20,6 @@ export class AppComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
 
-
-
   ngOnInit(): void {
     //this.subject = webSocket('wss://localhost:8128');
     this.subject = webSocket('wss://websocket.cioty.com/faciliate/swg/1/channel');
